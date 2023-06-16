@@ -8,22 +8,22 @@ version = providers.gradleProperty("version").get()
 
 kotlin {
     android()
+    jvm("desktop")
+    ios()
     macosX64()
+    mingwX64()
+
     sourceSets {
         val commonMain by getting
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
         val androidMain by getting
-        val androidTest by getting {
-            dependencies {
-                implementation(libs.junit)
-            }
+        val iosMain by getting
+        val desktopMain by getting
+        val macosX64Main by getting {
+            dependsOn(desktopMain)
         }
-        val macosX64Main by getting
-        val macosX64Test by getting
+        val mingwX64Main by getting {
+            dependsOn(desktopMain)
+        }
     }
 }
 
