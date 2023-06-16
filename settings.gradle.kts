@@ -6,7 +6,7 @@ pluginManagement {
     }
     
 }
-rootProject.name = "temp"
+rootProject.name = "PinTask-client"
 
 
 include(":shared")

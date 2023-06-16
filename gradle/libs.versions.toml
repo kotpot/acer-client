@@ -1,0 +1,23 @@
+[versions]
+junit = "4.13.2"
+appcompat = "1.6.1"
+material = "1.9.0"
+constraintlayout = "2.1.4"
+kotlin = "1.8.21"
+agp = "7.3.1"
+
+[libraries]
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android-tools-build = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
+[plugins]
+# unused because https://youtrack.jetbrains.com/issue/KTIJ-19369
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+[bundles]

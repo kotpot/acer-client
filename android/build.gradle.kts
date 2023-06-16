@@ -1,26 +1,26 @@
 plugins {
-    id("com.android.application")
     kotlin("android")
+    id("com.android.application")
 }
 
-group = "com.korilin.pintask"
-version = "1.0-SNAPSHOT"
+group = providers.gradleProperty("group").get()
+version = providers.gradleProperty("version").get()
 
 dependencies {
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
 }
 
 android {
-    namespace = "com.korilin.pintask.android"
-    compileSdk = 32
+    namespace = providers.gradleProperty("android.app.id").get()
+    compileSdk = providers.gradleProperty("android.compileSdk").get().toInt()
     defaultConfig {
-        applicationId = "com.korilin.pintask.android"
-        minSdk = 24
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = providers.gradleProperty("android.app.id").get()
+        minSdk = providers.gradleProperty("android.minSdk").get().toInt()
+        targetSdk = providers.gradleProperty("android.targetSdk").get().toInt()
+        versionCode = providers.gradleProperty("android.versionCode").get().toInt()
+        versionName = providers.gradleProperty("android.versionName").get()
     }
     buildTypes {
         getByName("release") {

@@ -5,13 +5,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.21")
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath(libs.kotlin.gradle.plugin)
+        classpath(libs.android.tools.build)
     }
 }
 
-group = "com.korilin.pintask"
-version = "1.0-SNAPSHOT"
+group = providers.gradleProperty("group").get()
+version = providers.gradleProperty("version").get()
 
 allprojects {
     repositories {
