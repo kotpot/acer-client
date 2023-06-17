@@ -5,12 +5,17 @@ material = "1.9.0"
 constraintlayout = "2.1.4"
 kotlin = "1.8.21"
 agp = "7.3.1"
+coroutinues = "1.7.1"
+serialization-json="1.5.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+
+kotlinx-coroutinues-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutinues" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization-json" }
 
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 android-tools-build = { module = "com.android.tools.build:gradle", version.ref = "agp" }

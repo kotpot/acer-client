@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.application")
+    kotlin("plugin.serialization") version "1.8.21"
 }
 
 group = providers.gradleProperty("group").get()
@@ -11,10 +12,17 @@ kotlin {
     jvm("desktop")
     ios()
     macosX64()
+    macosArm64()
     mingwX64()
 
+
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.kotlinx.coroutinues.core)
+                implementation(libs.kotlinx.serialization.json)
+            }
+        }
         val androidMain by getting
         val iosMain by getting
         val desktopMain by getting
