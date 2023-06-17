@@ -23,8 +23,18 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
             }
         }
-        val androidMain by getting
-        val iosMain by getting
+        val androidMain by getting {
+            dependencies {
+                dependsOn(commonMain)
+                implementation("com.squareup.okhttp3:okhttp:4.10.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+            }
+        }
+        val iosMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:2.3.1")
+            }
+        }
         val desktopMain by getting
         val macosX64Main by getting {
             dependsOn(desktopMain)

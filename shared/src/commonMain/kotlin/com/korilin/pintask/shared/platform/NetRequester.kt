@@ -3,9 +3,9 @@ package com.korilin.pintask.shared.platform
 import kotlinx.serialization.KSerializer
 
 interface NetRequester {
-    suspend fun get(url: String, params: Map<String, Any?>): Result<String>
+    suspend fun <O> get(url: String, params: Map<String, Any?>): Result<O>
 
-    suspend fun <T> post(url: String, params: T, serializer: KSerializer<T>): Result<String>
+    suspend fun <I, O> post(url: String, params: I): Result<O>
 
     fun urlWithParams(url: String, params: Map<String, Any?>): String {
         val urlBuilder = StringBuilder(url.plus("?"))
