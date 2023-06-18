@@ -15,13 +15,17 @@ kotlin {
     macosArm64()
     mingwX64()
 
-
     sourceSets {
+
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutinues.core)
                 implementation(libs.kotlinx.serialization.json)
+                implementation("com.google.protobuf:protobuf-java:3.19.3")
+                implementation("com.google.protobuf:protobuf-kotlin-lite:3.19.6")
             }
+
+
         }
         val androidMain by getting {
             dependencies {

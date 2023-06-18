@@ -16,11 +16,12 @@ class KtorNetRequester : NetRequester {
     private val client = HttpClient()
 
     override suspend fun <O> get(url: String, params: Map<String, Any?>): Result<O> {
-        return kotlin.runCatching {
-            val urlWithParams = urlWithParams(url, params)
-            val response = client.get(urlWithParams)
-            response.bodyAsText()
-        }
+//        return kotlin.runCatching {
+//            val urlWithParams = urlWithParams(url, params)
+//            val response = client.get(urlWithParams)
+//            response.bodyAsText()
+//        }
+        TODO()
     }
 
     override suspend fun <I, O>  post(
@@ -32,7 +33,8 @@ class KtorNetRequester : NetRequester {
                 contentType(ContentType.Application.Json)
                 setBody(body)
             }
-             response.body(TypeInfo(I::class))
+            //response.body(TypeInfo(I::class))
+            TODO()
         }
     }
 

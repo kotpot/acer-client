@@ -23,26 +23,23 @@ class OkHttpNetRequester : NetRequester {
 
     private val mediaType = "application/json".toMediaType()
 
-    override suspend fun get(
-        url: String,
-        params: Map<String, Any?>
-    ): Result<String> {
-        Log.d("OkHttpNetRequester", "get:: $url $params")
-        val urlWithParams = urlWithParams(url, params)
-        val request = requestBuilder(urlWithParams).get().build()
-        return doRequest(request)
+    override suspend fun <O> get(url: String, params: Map<String, Any?>): Result<O> {
+//        Log.d("OkHttpNetRequester", "get:: $url $params")
+//        val urlWithParams = urlWithParams(url, params)
+//        val request = requestBuilder(urlWithParams).get().build()
+//        return doRequest(request)
+        TODO()
     }
 
-    override suspend fun <T> post(
+    override suspend fun <I, O>  post(
         url: String,
-        params: T,
-        serializer: KSerializer<T>
-    ): Result<String> {
-        val json = Json.encodeToString(serializer, params)
-        val body = json.toRequestBody(mediaType)
-        Log.d("OkHttpNetRequester", "post:: $url $json")
-        val request = requestBuilder(url).post(body).build()
-        return doRequest(request)
+        params: I
+    ): Result<O> {
+//        val json = Json.encodeToString(serializer, params)
+//        val body = json.toRequestBody(mediaType)
+//        Log.d("OkHttpNetRequester", "post:: $url $json")
+//        val request = requestBuilder(url).post(body).build()
+        return TODO()
     }
 
     private suspend fun doRequest(request: Request): Result<String> = suspendCoroutine {
