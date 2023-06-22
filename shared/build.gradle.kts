@@ -19,10 +19,9 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(libs.kotlinx.coroutinues.core)
+                implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.serialization.json)
-                implementation("com.google.protobuf:protobuf-java:3.19.3")
-                implementation("com.google.protobuf:protobuf-kotlin-lite:3.19.6")
+                implementation(libs.ktor.client.core)
             }
 
 
@@ -30,13 +29,14 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 dependsOn(commonMain)
-                implementation("com.squareup.okhttp3:okhttp:4.10.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+                implementation(libs.kotlinx.coroutines.android)
+                implementation(libs.ktor.client.okhttp)
+                implementation(libs.okhttp)
             }
         }
         val iosMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:2.3.1")
+                implementation(libs.ktor.client.ios)
             }
         }
         val desktopMain by getting
@@ -60,6 +60,7 @@ android {
         versionName = providers.gradleProperty("android.versionName").get()
     }
     buildTypes {
+
         getByName("release") {
             isMinifyEnabled = false
         }
