@@ -1,17 +1,10 @@
 package com.korilin.pintask.shared.platform
 
-import com.korilin.pintask.shared.model.ResponseBody
-import com.korilin.pintask.shared.platform.NetRequester
 import io.ktor.client.*
-import io.ktor.client.call.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
-import io.ktor.util.reflect.*
-import kotlinx.serialization.KSerializer
-import kotlinx.serialization.json.Json
 
-class KtorNetRequester : NetRequester {
+class IosKtorNetRequester : NetRequester {
 
     private val client = HttpClient()
 

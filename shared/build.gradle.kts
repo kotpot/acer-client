@@ -11,14 +11,12 @@ kotlin {
     android()
     jvm("desktop")
     ios()
-    macosX64()
-    macosArm64()
-    mingwX64()
 
     sourceSets {
 
         val commonMain by getting {
             dependencies {
+                implementation(project(":protocol"))
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.ktor.client.core)
@@ -36,15 +34,15 @@ kotlin {
         }
         val iosMain by getting {
             dependencies {
+                dependsOn(commonMain)
                 implementation(libs.ktor.client.ios)
             }
         }
-        val desktopMain by getting
-        val macosX64Main by getting {
-            dependsOn(desktopMain)
-        }
-        val mingwX64Main by getting {
-            dependsOn(desktopMain)
+        // JVM
+        val desktopMain by getting {
+            dependencies {
+                dependsOn(commonMain)
+            }
         }
     }
 }
