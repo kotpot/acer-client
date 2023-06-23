@@ -2,6 +2,7 @@
 
 PinTask client. Build with Kotlin Multiplatform.
 
+## Kotlin Version 1.8.21
 
 ## Shared Module
 
