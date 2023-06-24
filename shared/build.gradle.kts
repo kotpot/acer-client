@@ -21,27 +21,25 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.ktor.client.core)
             }
-
-
         }
         val androidMain by getting {
+            dependsOn(commonMain)
             dependencies {
-                dependsOn(commonMain)
                 implementation(libs.kotlinx.coroutines.android)
                 implementation(libs.ktor.client.okhttp)
                 implementation(libs.okhttp)
             }
         }
         val iosMain by getting {
+            dependsOn(commonMain)
             dependencies {
-                dependsOn(commonMain)
                 implementation(libs.ktor.client.ios)
             }
         }
         // JVM
         val desktopMain by getting {
+            dependsOn(commonMain)
             dependencies {
-                dependsOn(commonMain)
             }
         }
     }
