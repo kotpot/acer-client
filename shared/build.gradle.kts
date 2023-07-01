@@ -40,6 +40,7 @@ kotlin {
         val desktopMain by getting {
             dependsOn(commonMain)
             dependencies {
+                implementation(libs.ktor.client.java)
             }
         }
     }
